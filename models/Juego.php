@@ -1,5 +1,5 @@
 <?php
-class Juego{}
+class Juego{
     protected $id;
     protected $genero;
     protected $duracion;
@@ -46,5 +46,5 @@ class Juego{}
     }
 
     
-
+}
 ?>

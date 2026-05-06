@@ -14,7 +14,7 @@ class Accion extends Juego{
     }
 
     public function getTipoAccion(){
-        return $this->getTipoAccion;
+        return $this->TipoAccion;
     }
 
     public function setTipoAccion($tipoAccion){

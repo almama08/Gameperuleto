@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 06-05-2026 a las 14:52:44
+-- Tiempo de generación: 06-05-2026 a las 15:03:07
 -- Versión del servidor: 9.6.0
 -- Versión de PHP: 8.3.30
 
@@ -31,7 +31,11 @@ CREATE TABLE `juegos` (
   `id` int NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
   `genero` varchar(20) DEFAULT NULL,
-  `duracion` varchar(20) DEFAULT NULL
+  `duracion` varchar(20) DEFAULT NULL,
+  `tipoAccion` varchar(50) DEFAULT NULL,
+  `tipoArma` varchar(50) DEFAULT NULL,
+  `tipoTerror` varchar(50) DEFAULT NULL,
+  `tipoVista` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------

@@ -1,4 +1,4 @@
-<<?php
+<?php
 class Accion extends Juego{
     private $tipoAccion;
     private $tipoArma;
@@ -14,7 +14,7 @@ class Accion extends Juego{
     }
 
     public function getTipoAccion(){
-        return $this->TipoAccion;
+        return $this->tipoAccion;
     }
 
     public function setTipoAccion($tipoAccion){

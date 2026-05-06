@@ -10,7 +10,7 @@ class Juego{
         $this->genero=$genero;
         $this->duracion=$duracion;
         $this->nombre=$nombre;
-
+    }
     
     public function getId(){
         return $this->id;
@@ -43,8 +43,6 @@ class Juego{
     public function setNombre($nombre) {
         $this->nombre = $nombre;
     }
-    }
-
-    
+     
 }
 ?>

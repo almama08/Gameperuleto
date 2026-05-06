@@ -2,6 +2,7 @@
 
 require_once 'autoload.php';
 
+$gestor=new Gestor();
 $juegoController=new JuegoController($gestor);
 
 $accion=$_GET['accion'] ?? 'index';

@@ -27,7 +27,7 @@
             <option value=0>No</option>
         </select><br><br>
         Tipo de Terror:<br>
-        <   input type="number" name="tipoTerror" required><br><br>
+        <input type="number" name="tipoTerror" required><br><br>
         Tipo de Vista:<br>
         <select type="number" name="tipoVista" required>
             <option value=Null>-</option>

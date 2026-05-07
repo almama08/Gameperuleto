@@ -7,6 +7,15 @@
         <h2>GamePeruleto</h2>
 
         <a href="index.php?accion=añadir">Crear videojuego</a>
+    <div>
+        <?php if (isset($_SESSION['usuarioId'])): ?>
+            Bienvenido, <b><?= $_SESSION['usuarioEmail'] ?></b> |
+            <a href="index.php?accion=logout">Cerrar Sesión</a>
+        <?php else: ?>
+            <a href="index.php?accion=login">Iniciar Sesión</a> |
+            <a href="index.php?accion=registrarse">Registrarse</a>
+        <?php endif; ?>
+    </div>
 
         <table>
             <thead>

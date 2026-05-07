@@ -4,11 +4,8 @@ class Accion extends Juego{
     private $tipoArma;
 
 
-    function __construct($genero, $duracion, $nombre, $tipoAccion, $tipoArma, $id=null){
-        $this->id=$id;
-        $this->genero=$genero;
-        $this->duracion=$duracion;
-        $this->nombre=$nombre;
+    function __construct($nombre, $duracion, $tipoAccion, $tipoArma, $id=null){
+        parent::__construct($nombre,$duracion,$id);
         $this->tipoAccion=$tipoAccion;
         $this->tipoArma=$tipoArma;
     }
@@ -27,6 +24,11 @@ class Accion extends Juego{
 
     public function setTipoArma($tipoArma){
         $this->tipoArma = $tipoArma;
+    }
+
+    public function getGenero(){
+        $aux="Acción";
+        return $aux;
     }
 }
 

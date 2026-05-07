@@ -1,10 +1,12 @@
 <html>
     <head>
-        <title>Lista de videojuegos</title>
+        <title>GamePeruleto</title>
         <meta charset="utf-8">
     </head>
     <body>
-        <h2>Lista de Videojuegos</h2>
+        <h2>GamePeruleto</h2>
+
+        <a href="index.php?accion=añadir">Crear videojuego</a>
 
         <table>
             <thead>

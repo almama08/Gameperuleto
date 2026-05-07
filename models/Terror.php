@@ -4,11 +4,8 @@ class Terror extends Juego{
     private $tipoVista;
 
 
-    function __construct($genero, $duracion, $nombre, $tipoTerror, $tipoVista, $id=null){
-        $this->id=$id;
-        $this->genero=$genero;
-        $this->duracion=$duracion;
-        $this->nombre=$nombre;
+    function __construct($nombre, $duracion, $tipoTerror, $tipoVista, $id=null){
+        parent::__construct($nombre,$duracion,$id);
         $this->tipoTerror=$tipoTerror;
         $this->tipoVista=$tipoVista;
     }

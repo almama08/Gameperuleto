@@ -34,6 +34,40 @@
             }
             return $lista;
         }
+
+        public function añadir($juego){
+            $sql='INSERT INTO juegos (nombre, duracion, genero, tipoAccion,
+            tipoArma, tipoTerror, tipoVista)
+            VALUES (:nombre, :duracion, :genero, :tipoAccion, :tipoArma,
+            :tipoTerror, :tipoVista)';
+
+            $stmt=$this->db->prepare($sql);
+
+            $genero=get_class($juego);
+
+            $tipoArma=null;
+            $tipoAccion=null;
+            $tipoTerror=null;
+            $tipoVista=null;
+
+            if($juego instanceof Accion){
+                $tipoArma=$juego->getTipoArma();
+                $tipoAccion=$juego->getTipoAccion();
+            }elseif($juego instanceof Terror){
+                $tipoTerror=$juego->getTipoTerror();
+                $tipoVista=$juego->getTipoVista();
+            }
+
+            $stmt->execute([
+                ':nombre'=>$juego->getNombre(),
+                ':duracion'=>$juego->getDuracion(),
+                ':genero'=>$genero,
+                ':tipoAccion'=>$tipoAccion,
+                ':tipoArma'=>$tipoArma,
+                ':tipoTerror'=>$tipoTerror,
+                ':tipoVista'=>$tipoVista
+            ]);
+        }
     }
 
 ?>

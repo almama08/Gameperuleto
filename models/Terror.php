@@ -25,6 +25,11 @@ class Terror extends Juego{
     public function setTipoVista($tipoVista){
         $this->tipoVista = $tipoVista;
     }
+
+    public function getGenero(){
+        $aux="Terror";
+        return $aux;
+    }
 }
 
 ?>

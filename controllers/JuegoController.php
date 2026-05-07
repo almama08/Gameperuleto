@@ -32,7 +32,7 @@
 
         public function añadirTerror(){
             if($_SERVER['REQUEST_METHOD']=='POST'){
-                $juego=new Accion(
+                $juego=new Terror(
                     $_POST['nombre'],$_POST['duracion'],
                     $_POST['tipoTerror'],$_POST['tipoVista']
                 );

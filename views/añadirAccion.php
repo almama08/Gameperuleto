@@ -7,7 +7,7 @@
     <h1>Crear Videojuego de Acción</h1>
 
     <form action="index.php?accion=añadirAccion" method="POST">
-        <label>Nombre:</label><br>
+        <label>Nombre:</label>
         <input type="text" name="nombre" placeholder="Adrenalina pura!!!"><br>
 
         <label>Duración (Horas):</label>

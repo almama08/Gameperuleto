@@ -69,6 +69,13 @@
 
             return $stmt->execute();
         }
+
+        public function eliminar($id){
+            $sql='DELETE FROM juegos WHERE id=:id';
+            $stmt=$this->db->prepare($sql);
+            $stmt->bindValue(':id',$id);
+            return $stmt->execute();
+        }
     }
 
 ?>

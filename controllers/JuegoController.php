@@ -42,6 +42,15 @@
             }
             include 'views/añadirTerror.php';
         }
+
+        public function eliminar(){
+            if(isset($_GET['id'])){
+                $id=$_GET['id'];
+                $this->gestor->eliminar($id);
+                header('Location: index.php');
+            }
+            exit;
+        }
     }
 
 ?>

@@ -7,6 +7,7 @@
         <h2>GamePeruleto</h2>
 
         <a href="index.php?accion=añadir">Crear videojuego</a>
+        <a href="index.php?accion=registrarse">Registrarse</a>
 
         <table>
             <thead>

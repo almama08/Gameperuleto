@@ -8,7 +8,7 @@ class UsuarioController {
     }
 
     public function registrarse() {
-        if($_SERVER['RQUEST_METHOD'] === 'POST'){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $email = $_POST['email'];
             $passwordPlana = $_POST['password'];
 

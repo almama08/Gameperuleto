@@ -1,10 +1,12 @@
 <html>
     <head>
-        <title>Lista de videojuegos</title>
+        <title>GamePeruleto</title>
         <meta charset="utf-8">
     </head>
     <body>
-        <h2>Lista de Videojuegos</h2>
+        <h2>GamePeruleto</h2>
+
+        <a href="index.php?accion=añadir">Crear videojuego</a>
 
         <table>
             <thead>
@@ -28,8 +30,8 @@
                                     echo "<strong>Tipo de acción:</strong> " . $juego->getTipoAccion();
                                     echo "<br><strong>Tipo de armas:</strong> " . $juego->getTipoArma();
                                 }elseif($juego instanceof Terror){
-                                    echo "<br><strong>Tipo de terror:</strong> " . $juego->getTipoTerror();
-                                    echo "<strong>Tipo de vista:</strong> " . $juego->getTipoVista();
+                                    echo "<strong>Tipo de terror:</strong> " . $juego->getTipoTerror();
+                                    echo "<br><strong>Tipo de vista:</strong> " . $juego->getTipoVista();
                                 }
                             ?>
                         </td>

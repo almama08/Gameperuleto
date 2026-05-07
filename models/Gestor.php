@@ -146,6 +146,21 @@
 
             return $stmt->execute();
         }
+
+
+        public function buscarUsuarioPorEmail($email) {
+            $sql = "SELECT * FROM usuarios WHERE email = :email LIMIT 1";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindValue(':email', $email);
+            $stmt->execute();
+
+            $value = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($value) {
+                return new Usuario($value['email'], $value['password'], $value['id']);
+            }
+            return false;
+        }
     }
 
 ?>

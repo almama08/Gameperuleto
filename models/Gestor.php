@@ -59,13 +59,13 @@
             }
 
             $stmt->execute([
-                ':nombre'=>$juego->getNombre(),
-                ':duracion'=>$juego->getDuracion(),
-                ':genero'=>$genero,
-                ':tipoAccion'=>$tipoAccion,
-                ':tipoArma'=>$tipoArma,
-                ':tipoTerror'=>$tipoTerror,
-                ':tipoVista'=>$tipoVista
+            $stmt->bindValue(':nombre', $juego->getNombre()),
+            $stmt->bindValue(':duracion', $juego->getDuracion()),
+            $stmt->bindValue(':genero', $juego->getGenero()),
+            $stmt->bindValue(':tipoAccion', $juego->getTipoAccion()),
+            $stmt->bindValue(':tipoArma', $juego->getTipoArma()),
+            $stmt->bindValue(':tipoTerror', $juego->getTipoTerror()),
+            $stmt->bindValue(':tipoVista', $juego->getTipoVista())
             ]);
         }
     }

@@ -136,6 +136,16 @@
             }
             return null;
         }
+
+        public function registrarUsuario(Usuario $usuario) {
+            $sql = "INSERT  INTO usuarios (email, password) VALUES (:email, :password)";
+            $stmt = $this->db->prepare($sql);
+
+            $stmt->bindValue('email', $usuario->getEmail());
+            $stmt->bindValue('password', $usuario->getPassword());
+
+            return $stmt->execute();
+        }
     }
 
 ?>

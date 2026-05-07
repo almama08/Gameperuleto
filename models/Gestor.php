@@ -76,6 +76,66 @@
             $stmt->bindValue(':id',$id);
             return $stmt->execute();
         }
+
+        public function editar($juego) {
+            $sql="UPDATE juegos SET nombre=:nombre, duracion=:duracion, genero=:genero, tipoAccion=:tipoAccion, tipoArma=:tipoArma, tipoTerror=:tipoTerror, tipoVista=:tipoVista WHERE id = :id";
+            $stmt = $this->db->prepare($sql);
+
+            $genero=get_class($juego);
+
+            $tipoArma=null;
+            $tipoAccion=null;
+            $tipoTerror=null;
+            $tipoVista=null;
+
+            if($juego instanceof Accion){
+                $sql="UPDATE juegos SET nombre=:nombre, duracion=:duracion, genero=:genero, tipoAccion=:tipoAccion, tipoArma=:tipoArma WHERE id = :id";
+                $tipoArma=$juego->getTipoArma();
+                $tipoAccion=$juego->getTipoAccion();
+            }elseif($juego instanceof Terror){
+                 $sql="UPDATE juegos SET nombre=:nombre, duracion=:duracion, genero=:genero, tipoTerror=:tipoTerror, tipoVista=:tipoVista WHERE id = :id";
+                $tipoTerror=$juego->getTipoTerror();
+                $tipoVista=$juego->getTipoVista();
+            }
+
+
+            $stmt->bindValue(':nombre', $juego->getNombre());
+            $stmt->bindValue(':duracion', $juego->getDuracion());
+            $stmt->bindValue(':genero', $juego->getGenero());
+            $stmt->bindValue(':tipoAccion', $tipoAccion);
+            $stmt->bindValue(':tipoArma', $tipoArma);
+            $stmt->bindValue(':tipoTerror', $tipoTerror);
+            $stmt->bindValue(':tipoVista', $tipoVista);
+            $stmt->bindValue(':id',$juego->getId());
+
+            return $stmt->execute();
+        }
+
+        public function buscarJuegoPorId($id){
+            $sql='SELECT * FROM juegos WHERE id=:id';
+            $stmt=$this->db->prepare($sql);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+
+            $res=$stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($res){
+                if($res['genero']=='Terror'){
+                    return new Terror(
+                        $res['nombre'],$res['duracion'],
+                        $res['tipoTerror'],$res['tipoVista'],
+                        $res['id']
+                    );
+                }else{
+                    return new Accion(
+                        $res['nombre'],$res['duracion'],
+                        $res['tipoAccion'],$res['tipoArma'],
+                        $res['id']
+                    );
+                }
+            }
+            return null;
+        }
     }
 
 ?>

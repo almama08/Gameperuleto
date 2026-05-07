@@ -51,6 +51,32 @@
             }
             exit;
         }
+
+        public function editar(){
+            if($_SERVER['REQUEST_METHOD']=='POST'){
+                $genero=$_POST['genero'];
+
+                if($genero=="Terror"){
+                    $juego=new Terror(
+                        $_POST['nombre'],$_POST['duracion'],
+                        $_POST['tipoTerror'],$_POST['tipoVista'],
+                        $_POST['id']
+                    );
+                }else{
+                    $juego=new Accion(
+                        $_POST['nombre'],$_POST['duracion'],
+                        $_POST['tipoAccion'],$_POST['tipoArma'],
+                        $_POST['id']
+                    );
+                }
+                $this->gestor->editar($juego);
+                header('Location: index.php');
+                exit;
+            }
+            $id=$_GET['id'];
+            $juego=$this->gestor->buscarJuegoPorId($id);
+            include 'views/editar.php';
+        }
     }
 
 ?>

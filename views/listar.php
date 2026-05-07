@@ -36,6 +36,7 @@
                             ?>
                         </td>
                         <td>
+                            <a href="index.php?accion=editar&id=<?= $juego->getId() ?>">Editar</a><br>
                             <a href="index.php?accion=eliminar&id=<?= $juego->getId() ?>" onclick="return confirm('Eliminar este videojuego?')">Eliminar</a>
                         </td>
                     </tr>

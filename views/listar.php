@@ -6,11 +6,12 @@
     <body>
         <h2>GamePeruleto</h2>
 
-        <a href="index.php?accion=añadir">Crear videojuego</a>
     <div>
         <?php if (isset($_SESSION['usuarioId'])): ?>
-            Bienvenido, <b><?= $_SESSION['usuarioEmail'] ?></b> |
-            <a href="index.php?accion=logout">Cerrar Sesión</a>
+            Bienvenido, <b><?= $_SESSION['usuarioEmail'] ?></b>
+            |
+            <a href="index.php?accion=logout">Cerrar Sesión</a><br>
+            <a href="index.php?accion=añadir">Crear videojuego</a> 
         <?php else: ?>
             <a href="index.php?accion=login">Iniciar Sesión</a> |
             <a href="index.php?accion=registrarse">Registrarse</a>
@@ -24,7 +25,9 @@
                         <th>Duración (Horas)</th>
                         <th>Género</th>
                         <th>Info específica</th>
+                        <?php if(isset($_SESSION['usuarioId'])): ?>
                         <th>Acciones</th>
+                        <?php endif; ?>
                     </tr>
             </thead>
             <tbody>
@@ -44,10 +47,12 @@
                                 }
                             ?>
                         </td>
+                        <?php if(isset($_SESSION['usuarioId'])): ?>
                         <td>
                             <a href="index.php?accion=editar&id=<?= $juego->getId() ?>">Editar</a><br>
                             <a href="index.php?accion=eliminar&id=<?= $juego->getId() ?>" onclick="return confirm('Eliminar este videojuego?')">Eliminar</a>
                         </td>
+                        <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

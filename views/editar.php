@@ -10,9 +10,6 @@
         <input type="hidden" name="id" value="<?= $juego->getId(); ?>">
         <input type="hidden" name="genero" value="<?= $juego->getGenero(); ?>">
 
-        Género:<br>
-        <input type="text" name="genero" value="<?= $juego->getGenero() ?>" required><br><br>
-
         Duración (Horas):<br>
         <input type="text" name="duracion" value="<?= $juego->getDuracion() ?>" required><br><br>
 

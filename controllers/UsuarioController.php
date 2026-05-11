@@ -29,6 +29,7 @@ class UsuarioController {
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $email = $_POST['email'];
         $passwordPlana = $_POST['password'];
+        $recordar = isset($_POST['recordarme']);
 
         $usuario = $this->gestor->buscarUsuarioPorEmail($email);
 
@@ -37,6 +38,23 @@ class UsuarioController {
 
             $_SESSION['usuarioId'] = $usuario->getId();
             $_SESSION['usuarioEmail'] = $usuario->getEmail();
+
+            if($recordar) {
+
+                    $token = base64_encode($usuario->getEmail());
+
+                    setcookie(
+                        "usuario_login",
+                        $token,
+                        [
+                            'expires' => time() + (86400 * 30),
+                            'path' => '/',
+                            'httponly' => true,
+                            'samesite' => 'Strict'
+                        ]
+                    );
+                }
+
         }else{
         $error = "Credenciales incorrectas.";    
         }
@@ -51,6 +69,11 @@ class UsuarioController {
         $_SESSION = [];
 
         session_destroy();
+
+        if (isset($_COOKIE['usuario_login'])) {
+            setcookie('usuario_login', '', time() - 3600000, '/');
+        }
+
 
         header('Location: index.php?accion=login');
     }

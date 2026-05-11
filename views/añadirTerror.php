@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Crear Videojuego Terror</title>
+    <link rel="stylesheet" href="css/peruleto.css">
 </head>
 <body>
     <h1>Crear Videojuego de Terror</h1>

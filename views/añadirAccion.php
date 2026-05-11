@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Crear Videojuego Acción</title>
+    <link rel="stylesheet" href="css/peruleto.css">
 </head>
 <body>
     <h1>Crear Videojuego de Acción</h1>

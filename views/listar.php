@@ -26,7 +26,8 @@
                         <th>Género</th>
                         <th>Info específica</th>
                         <?php if(isset($_SESSION['usuarioId'])): ?>
-                        <th>Acciones</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
                         <?php endif; ?>
                     </tr>
             </thead>
@@ -47,7 +48,23 @@
                                 }
                             ?>
                         </td>
+
+                        <?php
+                            if(isset($_SESSION['usuarioId'])){
+                                $esCompletado=$this->gestor->obtenerEstadoJuego($juego->getId(), $_SESSION['usuarioId']);
+                            }
+                        ?>
+
                         <?php if(isset($_SESSION['usuarioId'])): ?>
+                        <td>
+                            <?php if ($esCompletado): ?>
+                                <span>Completado</span>
+                            <?php else: ?>
+                                <span>Pendiente</span>
+                            <?php endif; ?><br>
+
+                            <a href="index.php?accion=cambiarProgreso&id=<?= $juego->getId() ?>">Cambiar</a>
+                        </td>
                         <td>
                             <a href="index.php?accion=editar&id=<?= $juego->getId() ?>">Editar</a><br>
                             <a href="index.php?accion=eliminar&id=<?= $juego->getId() ?>" onclick="return confirm('Eliminar este videojuego?')">Eliminar</a>

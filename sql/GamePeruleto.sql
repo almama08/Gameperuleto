@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 06-05-2026 a las 15:03:07
+-- Tiempo de generación: 11-05-2026 a las 12:26:57
 -- Versión del servidor: 9.6.0
 -- Versión de PHP: 8.3.30
 
@@ -38,6 +38,14 @@ CREATE TABLE `juegos` (
   `tipoVista` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Volcado de datos para la tabla `juegos`
+--
+
+INSERT INTO `juegos` (`id`, `nombre`, `genero`, `duracion`, `tipoAccion`, `tipoArma`, `tipoTerror`, `tipoVista`) VALUES
+(16, 'Bocklog Horror index.html', 'Terror', '12', NULL, NULL, 'Psicológico', 'Cámara Fija'),
+(17, 'Don Altrom Social Fors', 'Acción', '1939', 'Historia', 'Fusiles de asalto', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -50,6 +58,14 @@ CREATE TABLE `progreso` (
   `completado` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Volcado de datos para la tabla `progreso`
+--
+
+INSERT INTO `progreso` (`id_usuario`, `id_videojuego`, `completado`) VALUES
+(2, 16, 1),
+(2, 17, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +77,14 @@ CREATE TABLE `usuarios` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `email`, `password`) VALUES
+(1, 'a@a.com', '$2y$10$iDL07moECn1JvGKQl1fBWOi/ijmCh.up28UkKjKCHlYZKBRumlxA.'),
+(2, 'b@b.com', '$2y$10$/aFZAXVrhHs.wszC7YK9/O6ysNlDc3lveWCCXMVw3ieBWKMJT0u2i');
 
 --
 -- Índices para tablas volcadas
@@ -94,13 +118,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `juegos`
 --
 ALTER TABLE `juegos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas

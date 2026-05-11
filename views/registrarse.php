@@ -3,6 +3,7 @@
 <head>
 
     <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="css/peruleto.css">
 </head>
 <body>
     <h1>Crear nueva Cuenta</h1>

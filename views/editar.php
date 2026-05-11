@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Editar Juego</title>
+    <link rel="stylesheet" href="css/peruleto.css">
 </head>
 <body>
     <h1>Editar Juego</h1>

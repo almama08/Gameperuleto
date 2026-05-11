@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Iniciar Sesion</title>
+    <link rel="stylesheet" href="css/peruleto.css">
 </head>
 <body>
     <h1>Iniciar Sesion</h1>

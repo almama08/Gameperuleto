@@ -161,6 +161,48 @@
             }
             return false;
         }
+
+        public function obtenerEstadoJuego($idJuego,$idUsuario){
+            $sql='SELECT completado FROM progreso WHERE id_videojuego=:id_juego AND id_usuario=:id_usuario';
+            $stmt=$this->db->prepare($sql);
+            
+            $stmt->bindValue(':id_juego',$idJuego);
+            $stmt->bindValue(':id_usuario',$idUsuario);
+            $stmt->execute();
+
+            $resultado=$stmt->fetch();
+
+            return ($resultado && $resultado['completado'] == 1);
+        }
+
+        public function cambiarProgreso($idJuego,$idUsuario){
+            $stmt=$this->db->prepare('SELECT completado FROM progreso WHERE id_videojuego=:id_juego AND id_usuario=:id_usuario');
+
+            $stmt->bindValue(':id_juego',$idJuego);
+            $stmt->bindValue(':id_usuario',$idUsuario);
+            $stmt->execute();
+
+            $fila=$stmt->fetch();
+
+            if($fila){
+                $nuevoEstado=($fila['completado'] == 1) ? 0 : 1;
+                $sql='UPDATE progreso SET completado=:completado WHERE id_videojuego=:id_juego AND id_usuario=:id_usuario';
+                $stmt=$this->db->prepare($sql);
+                
+                $stmt->bindValue(':completado', $nuevoEstado);
+                $stmt->bindValue(':id_juego',$idJuego);
+                $stmt->bindValue(':id_usuario',$idUsuario);
+                $stmt->execute();
+            }else{
+                $sql='INSERT INTO progreso (id_videojuego, id_usuario, completado)
+                VALUES (:id_juego, :id_usuario, 1)';
+                $stmt=$this->db->prepare($sql);
+
+                $stmt->bindValue(':id_juego',$idJuego);
+                $stmt->bindValue(':id_usuario',$idUsuario);
+                $stmt->execute();
+            }
+        }
     }
 
 ?>

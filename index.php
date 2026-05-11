@@ -35,6 +35,9 @@ switch($accion){
     case 'añadir':
         $juegoController->añadir();
         break;
+    case 'cambiarProgreso':
+        $juegoController->cambiarProgreso();
+        break;
     default:
         $juegoController->index();
         break;

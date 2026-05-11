@@ -77,6 +77,17 @@
             $juego=$this->gestor->buscarJuegoPorId($id);
             include 'views/editar.php';
         }
+
+        public function cambiarProgreso(){
+            if(isset($_SESSION['usuarioId']) && isset($_GET['id'])){
+                $idJuego=$_GET['id'];
+                $idUsuario=$_SESSION['usuarioId'];
+
+                $this->gestor->cambiarProgreso($idJuego,$idUsuario);
+            }
+            header('Location: index.php');
+            exit;
+        }
     }
 
 ?>
